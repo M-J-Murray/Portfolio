@@ -2,9 +2,6 @@
 A portfolio of computer graphics projects
 
 ##Contents:
-
-+Advanced OpenGL Scene: An advanced OpenGl project I made  using LWJGL to show a 3D environment based on the thinMatrix youtube tutorials.
-+Gravity Simulation : A simulation using icosahedrons to show objects collision and gravity in space, uses Advanced OpenGL Scene as a base.
 <ul>
 <li>Racing Game: A game I made in a second year Computer Graphics module using basic OpenGL and Java.</li>
 <li>Advanced OpenGL Scene: An advanced OpenGl project I made  using LWJGL to show a 3D environment based on the thinMatrix youtube tutorials.</li>
