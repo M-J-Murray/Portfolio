@@ -1,7 +1,5 @@
 # Advanced OpenGL Scene
 ###An advanced OpenGl project I made  using LWJGL to show a 3D environment based on the thinMatrix youtube tutorials.
-
-##Advanced OpenGL Scene
 ###Demonstration
 [![Advanced OpenGL Scene Demo](http://img.youtube.com/vi/5NX1rZDPYHg/0.jpg)](http://www.youtube.com/watch?v=5NX1rZDPYHg)
 ###Screen Shots
