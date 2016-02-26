@@ -12,7 +12,7 @@ A portfolio of computer graphics projects
 ![alt tag](media/Racing-Game1.png)
 ![alt tag](media/Racing-Game2.png)
 ![alt tag](media/Racing-Game3.png)
-[![IMAGE ALT TEXT HERE](http://img.youtu.be/6VeQYvPi9G0/0.jpg)](https://youtu.be/6VeQYvPi9G0)
+[![IMAGE ALT TEXT HERE](https://www.youtube.com/watch?v=6VeQYvPi9G0/0.jpg)](https://www.youtube.com/watch?v=6VeQYvPi9G0)
 
 ##Advanced OpenGL Scene
 ![alt tag](media/aogl-demo1.jpg)
