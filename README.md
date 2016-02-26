@@ -18,7 +18,7 @@ Uses basic OpenGL features to create a racing game
 ![Racing Game Image 2](media/Racing-Game2.png)
 ![Racing Game Image 3](media/Racing-Game3.png)
 
-##Advanced OpenGL Scene]
+##Advanced OpenGL Scene
 Uses advanced OpenGL features to create a racing game such as:
 <ul>
 <li>A Display</li>
