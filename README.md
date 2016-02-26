@@ -39,6 +39,7 @@ Uses advanced OpenGL features to create a racing game such as:
 ![Advanced OpenGL Scene Image 2](media/aogl-demo2.jpg)
 
 ##Gravity & Collision Simulation
+Uses Advanced OpenGL as a base with some extra mathematics for collision detection and gravity
 ###[The Code](https://github.com/BombayCinema/Portfolio/tree/Gravity-Simulation)
 ###Demonstration
 [![Gravity & Collision Simulation Demo](http://img.youtube.com/vi/JjU7CmucAxE/0.jpg)](http://www.youtube.com/watch?v=JjU7CmucAxE)
