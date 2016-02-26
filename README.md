@@ -13,6 +13,10 @@ A portfolio of computer graphics projects
 ![alt tag](media/Racing-Game2.png)
 ![alt tag](media/Racing-Game3.png)
 
+##Advanced OpenGL Scene
+![alt tag](media/aogl-demo1.jpg)
+![alt tag](media/aogl-demo2.jpg)
+
 ##Gravity & Collision Simulation
 ![alt tag](media/gravity-sim1.png)
 ![alt tag](media/gravity-sim2.png)
