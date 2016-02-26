@@ -8,7 +8,7 @@ A portfolio of computer graphics projects
 <li>Gravity & Collision Simulation : A simulation using icosahedrons to show objects collision and gravity in space, uses Advanced OpenGL Scene as a base. </li>
 </ul>
 ##Racing Game
-###[The Code](Racing-Game)
+###[The Code](https://github.com/BombayCinema/repo/blob/Portfolio/)
 ###Demonstration
 [![Racing Game Demo](http://img.youtube.com/vi/6VeQYvPi9G0/0.jpg)](http://www.youtube.com/watch?v=6VeQYvPi9G0)
 
