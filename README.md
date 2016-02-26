@@ -9,4 +9,4 @@ A portfolio of computer graphics projects
 </ul>
 
 ##Racing Game
-![alt tag](https://raw.githubusercontent.com/BombayCinema/Portfolio/Racing-Game/path/to/img.png)
+![alt tag](https://raw.github.com/BombayCinema/Portfolio/blob/master/media/Racing-Game1.png)
