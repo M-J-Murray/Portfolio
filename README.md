@@ -8,7 +8,7 @@ A portfolio of computer graphics projects
 <li>Gravity & Collision Simulation : A simulation using icosahedrons to show objects collision and gravity in space, uses Advanced OpenGL Scene as a base. </li>
 </ul>
 ##Racing Game
-Uses basic OpenGL to create a racing game
+Uses basic OpenGL features to create a racing game
 ###[The Code](https://github.com/BombayCinema/Portfolio/tree/Racing-Game)
 ###Demonstration
 [![Racing Game Demo](http://img.youtube.com/vi/6VeQYvPi9G0/0.jpg)](http://www.youtube.com/watch?v=6VeQYvPi9G0)
@@ -18,7 +18,19 @@ Uses basic OpenGL to create a racing game
 ![Racing Game Image 2](media/Racing-Game2.png)
 ![Racing Game Image 3](media/Racing-Game3.png)
 
-##Advanced OpenGL Scene
+##Advanced OpenGL Scene]
+Uses advanced OpenGL features to create a racing game such as:
+<ul>
+<li>A Display</li>
+<li>VAOs and VBOs</li>
+<li>Index Buffers</li>
+<li>Shaders</li>
+<li>OBJ Files to Load Blendr Models</li>
+<li>Per-Pixel Lighting</li>
+<li>Multi-Texturing</li>
+<li>Terrain Height Maps</li>
+<li>Terrain Collision Detection</li>
+</ul>
 ###[The Code](https://github.com/BombayCinema/Portfolio/tree/Advanced-OpenGL-Scene)
 ###Demonstration
 [![Advanced OpenGL Scene Demo](http://img.youtube.com/vi/52jChsIez6w/0.jpg)](http://www.youtube.com/watch?v=52jChsIez6w)
