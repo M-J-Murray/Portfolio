@@ -21,7 +21,7 @@ Uses basic OpenGL to create a racing game
 ##Advanced OpenGL Scene
 ###[The Code](https://github.com/BombayCinema/Portfolio/tree/Advanced-OpenGL-Scene)
 ###Demonstration
-[![Advanced OpenGL Scene Demo](http://img.youtube.com/vi/https://youtu.be/52jChsIez6w/0.jpg)](http://www.youtube.com/watch?v=52jChsIez6w)
+[![Advanced OpenGL Scene Demo](http://img.youtube.com/vi/52jChsIez6w/0.jpg)](http://www.youtube.com/watch?v=52jChsIez6w)
 ###Screen Shots
 ![Advanced OpenGL Scene Image 1](media/aogl-demo1.jpg)
 ![Advanced OpenGL Scene Image 2](media/aogl-demo2.jpg)
