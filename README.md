@@ -1,5 +1,5 @@
 # Racing Game
-###Racing Game: A game I made in a second year Computer Graphics module using basic OpenGL and Java.
+###A game I made in a second year Computer Graphics module using basic OpenGL and Java.
 ###Demonstration
 [![Racing Game Demo](http://img.youtube.com/vi/6VeQYvPi9G0/0.jpg)](http://www.youtube.com/watch?v=6VeQYvPi9G0)
 
