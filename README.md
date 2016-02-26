@@ -17,9 +17,15 @@ A portfolio of computer graphics projects
 
 
 ##Advanced OpenGL Scene
+###Demonstration
+[![Racing Game Demo](http://img.youtube.com/vi/5NX1rZDPYHg/0.jpg)](http://www.youtube.com/watch?v=5NX1rZDPYHg)
+###Screen Shots
 ![Advanced OpenGL Scene Image 1](media/aogl-demo1.jpg)
 ![Advanced OpenGL Scene Image 2](media/aogl-demo2.jpg)
 
 ##Gravity & Collision Simulation
+###Demonstration
+[![Racing Game Demo](http://img.youtube.com/vi/JjU7CmucAxE/0.jpg)](http://www.youtube.com/watch?v=JjU7CmucAxE)
+###Screen Shots
 ![Gravity & Collision Simulation Image 1](media/gravity-sim1.png)
 ![Gravity & Collision Simulation Image 1](media/gravity-sim2.png)
