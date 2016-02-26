@@ -11,7 +11,9 @@ A portfolio of computer graphics projects
 ![Racing Game Image 1](media/Racing-Game1.png)
 ![Racing Game Image 1](media/Racing-Game2.png)
 ![Racing Game Image 1](media/Racing-Game3.png)
-[![Racing Game Demo](http://img.youtube.com/vi/6VeQYvPi9G0/0.jpg)](http://www.youtube.com/watch?v=6VeQYvPi9G0)
+<a href="http://www.youtube.com/watch?feature=player_embedded&v=6VeQYvPi9G0
+" target="_blank"><img src="http://img.youtube.com/vi/6VeQYvPi9G0/0.jpg" 
+alt="Racing Game Demo" width="240" height="180" border="10" /></a>
 
 ##Advanced OpenGL Scene
 ![Advanced OpenGL Scene Image 1](media/aogl-demo1.jpg)
