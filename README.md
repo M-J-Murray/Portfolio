@@ -1,5 +1,8 @@
 # Portfolio
 A portfolio of computer graphics projects
+By Michael Murray
+Here is my CV:
+###[--CV--](media/Michael.Murray.CV.R.pdf)
 
 ##Contents:
 <ul>
