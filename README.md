@@ -1,5 +1,5 @@
 # Portfolio
-A portfolio of computer graphics projects</br>
+A portfolio of my computer graphics projects</br>
 By Michael Murray</br>
 Here is my CV:</br>
 ###[--CV--](media/Michael.Murray.CV.R.pdf)</br>
