@@ -4,7 +4,7 @@ By Michael Murray</br>
 <h3>My CV:</h3>
 ###[--CV--](Michael%20Murray%20CV%2031-03-16.pdf)</br></br>
 <h1>Here are some links to my projects:</h1>
-<h3><y Computer Graphics projects:</h3>
+<h3>My Computer Graphics projects:</h3>
 ###[--Computer Grapics--](https://github.com/BombayCinema/Portfolio/tree/Computer-Graphics)</br></br>
 <h3>A website I made for coursework:</h3>
 ###[--Aston Animal Santuary Website--](http://www.murraym1.eas-cs2410-1516.aston.ac.uk/index.php)</br></br>
