@@ -1,7 +1,7 @@
 # Portfolio
 A portfolio of some projects I have worked on</br>
 By Michael Murray</br>
-<h1>Here are some links to projects I have worked on:
+<h1>Here are some links to projects I have worked on:</h1>
 
 <h3>My CV:</h3></br>
 ###[--CV--](Michael%20Murray%20CV%2031-03-16.pdf)</br></br>
