@@ -7,7 +7,7 @@ By Michael Murray</br>
 <h3>My Computer Graphics projects:</h3>
 ###[--Computer Grapics--](https://github.com/BombayCinema/Portfolio/tree/Computer-Graphics)</br></br>
 <h3>A website I made for coursework:</h3>
-###[--Aston Animal Santuary Website--](http://www.murraym1.eas-cs2410-1516.aston.ac.uk/index.php)</br></br>
+###[--Aston Animal Santuary Website--](http://astonanimalsanct.byethost22.com/index.php)</br></br>
 <h3>A Quoridor Game Application I helped make for a group project:</h3>
 ###[--Quoridor Application--](https://github.com/BombayCinema/Portfolio/tree/Quoridor)</br></br>
 <h3>An Android app I am making for a friend:</h3>
