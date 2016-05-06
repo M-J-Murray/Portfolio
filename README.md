@@ -7,5 +7,7 @@ By Michael Murray</br>
 
 ###Screen Shots
 <h4>Timer profiles page:</h4>
-![Advanced OpenGL Scene Image 1](Media/MyProfiles.png)
+![Timer Profiles Page](Media/MyProfiles.png)
+<h4>Edit timer profile page:</h4>
+![Edit Timer Profile Page](Media/EditProfiles.png)
 
