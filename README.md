@@ -2,7 +2,7 @@
 A portfolio of some projects I have worked on</br>
 By Michael Murray</br>
 Here is my CV:</br>
-###[--CV--](media/Michael.Murray.CV.R.pdf)</br>
+###[--CV--](Michael.Murray.CV.31-03-16.pdf)</br>
 Here is a link to my Computer Graphics projects:
 ###[--Computer Grapics--](https://github.com/BombayCinema/Portfolio/tree/Computer-Graphics)</br>
 Here is a link to a website I made for courework:
