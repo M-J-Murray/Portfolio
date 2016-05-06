@@ -9,5 +9,7 @@ By Michael Murray</br>
 <h4>Timer profiles page:</h4>
 ![Timer Profiles Page](Media/MyProfiles.png)
 <h4>Edit timer profile page:</h4>
-![Edit Timer Profile Page](Media/EditProfiles.png)
+![Edit Timer Profile Page](Media/EditProfile.png)
+<h4>Edit timer inputs:</h4>
+![Edit Timer Inputs](Media/TimerInout.png)
 
