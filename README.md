@@ -5,7 +5,9 @@ Each timer profile has a timer length, intervals at which white noise is played 
 The timer will also read out a countdown before the white noise, and the current position of the timer.</br>
 By Michael Murray</br>
 
-###Screen Shots
+###[The Code](Code/)
+
+<h1>Screen Shots</h1>
 <h4>Timer profiles page:</h4>
 ![Timer Profiles Page](Media/MyProfiles.png)
 <h4>Edit timer profile page:</h4>
