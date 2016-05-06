@@ -1,4 +1,4 @@
-# Portfolio
+# Computer Graphics Portfolio
 A portfolio of some computer graphics projects I have worked on</br>
 By Michael Murray</br>
 
