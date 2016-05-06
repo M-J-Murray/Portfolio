@@ -4,7 +4,7 @@ By Michael Murray</br>
 Here is my CV:</br>
 ###[--CV--](media/Michael.Murray.CV.R.pdf)</br>
 Here is a link to my Computer Graphics projects:
-###[--Computer Grapics--]()</br>
+###[--Computer Grapics--](https://github.com/BombayCinema/Portfolio/tree/Computer-Graphics)</br>
 Here is a link to a website I made for courework:
 ###[--Aston Animal Santuary Website--]()</br>
 Here is a link to an Android app I made for a friend:
