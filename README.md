@@ -9,6 +9,6 @@ By Michael Murray</br>
 <h3>A website I made for coursework:</h3>
 ###[--Aston Animal Santuary Website--](http://www.murraym1.eas-cs2410-1516.aston.ac.uk/index.php)</br></br>
 <h3>A Quoridor Game Application I helped make for a group project:</h3>
-###[--Quoridor Application--]()</br></br>
+###[--Quoridor Application--](https://github.com/BombayCinema/Portfolio/tree/Quoridor)</br></br>
 <h3>An Android app I am making for a friend:</h3>
 ###[--Super Awesome Timer Android App--](https://github.com/BombayCinema/Portfolio/tree/Super-Awesome-Timer-App)</br></br>
