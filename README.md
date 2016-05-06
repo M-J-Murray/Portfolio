@@ -14,5 +14,9 @@ By Michael Murray</br>
 ###[The Code](Code/)
 
 <h1>Screen Shots</h1>
-<h4>Timer profiles page:</h4>
-![Timer Profiles Page](Media/MyProfiles.png)
+<h4>Main Menu Screen:</h4>
+![Main Menu Screen](Media/MainMenu.png)
+<h4>New Game Screen:</h4>
+![New Game Screen](Media/NewGameMenu.png)
+<h4>AI Game Screen:</h4>
+![AI Game Screen](Media/AIGame.png)
