@@ -1,0 +1,218 @@
+.popUpWindow{
+	position:fixed;
+	background-color:#2D882D;
+	top:50%;
+	left:50%;
+	text-align:center;
+	border-radius: 40px;
+	border-color: #009922;
+	border-style:ridge;
+	z-index:30 !important; 
+}
+
+#loginPopUpWindow{
+	width:300px;
+	height:250px;
+	margin-left:-150px;
+	margin-top:-200px;
+}
+
+#signUpPopUpWindow{
+	width:300px;
+	height:300px;
+	margin-left:-150px;
+	margin-top:-200px;
+}
+
+#animalDetailsPopUpWindow{
+	width:600px;
+	height:520px;
+	margin-left:-300px;
+	margin-top:-260px;
+}
+
+#myProfilePopUpWindow{
+	position:absolute;
+	width:200px;
+	min-height:170px;
+	max-height:210;
+	left:-5px;
+	border-top-left-radius: 10px !important;
+	border-top-right-radius: 10px !important;
+	border-bottom-left-radius: 10px !important;
+	background-color:#2D882D;
+	z-index:5 !important;
+}
+
+#animalDetailsPopUpWindow img{
+	margin:0;
+	margin-left:20px;
+	width:200px;
+	height:200px;
+	float:left;
+}
+
+#animalDetailsPopUpWindow h4{
+	max-width:300px;
+	color:white;
+}
+
+#animalDetailsPopUpWindow ul{
+	margin:0;
+	float:right;
+}
+
+#animalDetailsPopUpWindow h4{
+	margin:0;
+}
+
+#animalDetailsPopUpWindow h3{
+	margin:0;
+	color:black;
+}
+
+#animalDetailsPopUpWindow li {
+	margin-bottom:10px;
+	margin-right:30px;
+	text-align:left;
+}
+
+#editAnimalButton{
+	position:absolute;
+	float:left;
+	left: 140px;
+	bottom: 220px;
+}
+
+#requestAdoptionButton{
+	position:absolute;
+	float:left;
+	left: 60px;
+	bottom: 220px;
+}
+
+#denyAnimalButton{
+	position:absolute;
+	float:left;
+	left: 90px;
+	bottom: 220px;
+}
+
+#approveAnimalButton{
+	position:absolute;
+	float:left;
+	left: 20px;
+	bottom: 220px;
+}
+
+#myProfilePopUpWindow li{
+	margin-top:30px !important;
+}
+
+#userInfoTitle{
+	margin-top:20px !important;
+	margin-bottom:45px !important;
+	margin-left:-40px !important;
+	padding-left:40px !important;
+	background-color:#116611;
+	border-radius: 40px;
+}
+
+#userInfoTitle li{
+	margin-top:0px !important;
+	margin-bottom:-20px !important;
+}
+
+.popUpWindow .errorBox{
+	background-color:#ff0000;
+}
+
+.popUpTitle{
+	margin-left:0px;
+	margin-top:20px;
+	background-color:#116611;
+	padding-left:0px !important;
+	border-radius: 40px;
+}
+
+.popUpWindow li{
+	display:block;
+	text-decoration:none;
+	margin-left:-40px;
+	margin-bottom:-10px;
+}
+
+.popUpWindow a{
+	padding:10px;
+	border-radius: 30px;
+	text-decoration:none;
+	color:white;
+}
+
+.popUpWindow a:hover {
+	color:black;
+	background-color:#116611;
+}
+
+.popUpWindow .form-control{
+	text-align:center;
+}
+
+.popUpWindow .submitButton{
+	margin-top:20px;
+	border-radius:40px;
+}
+
+.closePopUpButton{
+	background-color:transparent;
+	border-color: transparent;
+	border-style:none;
+	position:absolute;
+	float:right;
+	border-radius:40px;
+	right:30px;
+	top:30px;
+}
+
+.backWrap{
+	width:100%;
+	height:100%;
+	opacity:0;
+	background:#000;
+    position:fixed;
+    top:0;
+    left:0;
+	z-index:-10 !important; 
+}
+
+.dim{
+	opacity:0.8 !important; 
+	z-index:20 !important; 
+	transition: opacity 0.5s;
+}
+
+.undim{
+	opacity:0 !important; 
+	z-index:-10 !important; 
+	transition: opacity 0.5s;
+}
+
+.show{
+	top:50% !important;
+	transition: top 0.5s;
+}
+
+.hide{
+	top:-60%  !important;
+	transition: top 0.5s;
+}
+
+.slide{
+	top:6%  !important;
+	transition: top 0.5s;
+}
+
+.unslide{
+	top:-40% !important;
+	transition: top 0.5s;
+}

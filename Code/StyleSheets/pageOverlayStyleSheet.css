@@ -1,0 +1,119 @@
+html, body {
+    padding:0;
+    margin:0;
+    height:100%;
+}
+
+#errorBar{
+	background-color:#ff0000;
+	width:100%;
+	text-align:center;
+}
+
+#navbar{
+	position:relative;
+	background-color: #2D882D;
+	color:white;
+	width:100%;
+	height:50px;
+	padding-top:5px;
+	overflow:hidden;
+	white-space:nowrap;
+	text-align:center;
+	z-index:10;
+}
+
+#navbar div li{
+	display:inline;
+	text-decoration:none;
+	color:white;
+}
+
+#navbar a{
+	text-decoration:none;
+	color:white;
+	padding-top:20px;
+	padding-bottom:20px;
+	padding-left:10px;
+	padding-right:10px;
+	border-radius: 90px 4px 90px 4px;
+}
+
+#navbar a:hover {
+	color:black;
+	background-color:#116611;
+}
+
+#navbar-left{
+	left:0;
+	position:absolute;
+	display:inline-block;
+	min-width: 100px;
+	margin-left:40px;
+}
+
+#navbar-center{
+	left:50%;
+	margin-left:-300px;
+	position:absolute;
+	display:inline-block;
+	min-width: 600px;
+}
+
+#navbar-right{
+	left:100%;
+	position:absolute;
+	display:inline-block;
+	min-width:300px;
+	margin-left:-250px;
+}
+
+#homeNavButton{
+	border-radius:90px 90px 90px 90px !important;
+	font-weight: 900;
+}
+
+#aboutNavButton{
+	border-radius:4px 90px 4px 90px !important;
+}
+
+#myProfileNavButton{
+	padding-right:65px !important;
+	padding-left:100px !important;
+	margin-right:-40px !important;
+	margin-left:-100px !important;
+	border-top-right-radius: 120px;
+	border-bottom-right-radius: 4px;
+}
+
+#logInNavButton{
+	border-radius:4px 90px 4px 90px !important;
+}
+
+#signUpNavButton{
+	border-radius:4px 90px 4px 90px !important;
+}
+
+#logOutNavButton{
+	border-radius:4px 90px 4px 90px !important;
+	margin-right:-80px;
+}
+
+#downArrowIcon{
+	float:right;
+	position:absolute;
+}
+
+.active{
+	background-color:#116611 !important;
+}
+
+.fixed{
+	width:705px !important;
+	margin-left:100px !important;
+}
+
+.dynamic{
+	width:75% !important;
+	margin-left:auto !important;
+}

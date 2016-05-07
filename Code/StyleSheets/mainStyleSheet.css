@@ -1,0 +1,180 @@
+#mainContent{
+	position:relative;
+	background-color:#55AA55;
+	border-style: ridge;
+	border-width:10px;
+	border-top-width:0px;
+	border-bottom-width:0px;
+	border-color:#2D882D;
+	padding:10px;
+	margin:auto;
+	width:75%;
+	min-height: calc(100% - 75px);
+}
+
+
+.section{
+	position:relative;
+	display:inline-block;
+	width:100%;
+}
+
+.title{
+	position:relative;
+	text-align:center;
+	color:white;
+	margin:auto;
+	margin-bottom:10px;
+	max-width:500px;
+}
+
+.roundContainer{
+	border-radius: 60px 60px 60px 60px;
+}
+
+.dark{
+	background-color:#116611;
+}
+
+.light{
+	background-color:#2D882D;
+}
+
+.descBox{
+	color:white;
+	padding:10px;
+	border-radius: 60px 60px 60px 60px;
+	margin-top:60px;
+	width:270px;
+	font-size: 150%;
+}
+
+.animalGridTitle{
+	color:white;
+	text-align:center;
+	margin-left:50px;
+	margin-top:-25px;
+	margin-bottom:-10px;
+}
+
+.animalGrid{
+	margin:10px;
+	text-align:center;
+	padding-top:40px;
+	padding-right:40px;
+	position:relative;
+	width:350px;
+	height:350px;
+}
+
+.animalGrid a{
+	text-decoration:none;
+}
+
+.animalGrid li{
+	display:inline-flex;
+	text-decoration:none;
+	overflow: hidden;
+	width:150px;
+	height:150px;
+	border-radius: 20px 20px 20px 20px;
+}
+
+.animalGrid img{
+	margin-left:-10%;
+	width:120%;
+	height:100%;
+}
+
+#catsLink , #catsDesc{
+	float:left;
+}
+
+#dogsLink , #dogsDesc{
+	float:right;
+}
+
+#othersLink , #othersDesc{
+	float:left;
+}
+
+#allAnimalsLink{
+	float:right;
+}
+
+#aboutDesc{
+	margin-top:15px;
+	float:left;
+}
+
+.animalTable{
+	width:100%;
+}
+
+.animalTable table{
+	width:80%;
+    border-collapse: collapse;
+	margin:auto;
+}
+
+.animalTable table img{
+	width:150px;
+	height:150px;
+	margin:0px;
+}
+
+.animalTable th {
+    background-color: #116611;
+    color: white;
+	padding: 8px;
+}
+
+.animalTable td {
+	text-align:center;
+	font-size: 200%;
+	padding: 8px;
+}
+
+tr:nth-child(odd){background-color: #ffffff}
+
+tr:nth-child(even){background-color: #f2f2f2}
+
+tr:hover {background-color: #2D882D}
+
+#addAnimalForm ul{
+	list-style-type: none;
+}
+
+#addAnimalForm li{
+	text-decoration:none;
+	text-align:center;
+	margin:0px;
+}
+
+#addAnimalForm h4{
+	margin:0px;
+	margin-bottom:10px;
+}
+
+#addAnimalForm button{
+	margin:0px;
+}
+
+#addAnimalForm .form-control{
+	text-align:center;
+	margin-bottom:20px;
+}
+
+#addAnimalForm textarea{
+	text-align:left !important;
+}
+
+#addAnimalForm .submitButton{
+	margin-top:20px;
+	border-radius:40px;
+}
+
+#currentAnimalImage{
+	width:100px;
+	height:100px;
+}
