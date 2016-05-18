@@ -1,5 +1,5 @@
 # Quoridor Group Project
-A Quoridor game application I worked on for a group project.</br>
+A Quoridor game application I worked on for a group project using Java.</br>
 <h5>What I contributed:</h5>
 My role for the project was to be one of the lead programmers for the game. I mainly worked on the models & the actual gameplay of Quoridor, including the gameplay GUI and all the functionality of the game itself with the AI.
 When we first started the project I began by creating the UML for the models we would be using for the game, this helped for when I created the base skeleton for the actual models in Java. The models would define how the individual game pieces were going to interact in the future of the game development. The base models changed quite a lot through every iteration of the game, in the end we settled with a model façade to pass all the model objects to and from the gameplay. The models we used were a board, a pawn, a wall and a coordinate, using just these 4 components we were able to create the core for the game.
