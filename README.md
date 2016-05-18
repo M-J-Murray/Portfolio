@@ -1,5 +1,5 @@
 # Super Awesome Timer Android Application
-An Android application I am making for a friend.
+An Android application I am making for a friend using Java and XML.
 The application allows you to create timer profiles.
 Each timer profile has a timer length, intervals at which white noise is played & the duration of the white noise. 
 The timer will also read out a countdown before the white noise, and the current position of the timer.</br>
