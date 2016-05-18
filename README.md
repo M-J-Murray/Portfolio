@@ -1,5 +1,5 @@
 # Computer Graphics Portfolio
-A portfolio of some computer graphics projects I have worked on</br>
+A portfolio of some computer graphics projects I have worked on using Java, OpenGL and the Java Lightweight Game Library.</br>
 By Michael Murray</br>
 
 ##Contents:
