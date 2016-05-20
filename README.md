@@ -10,7 +10,7 @@ By Michael Murray</br>
 </ul>
 ##Racing Game
 Uses basic OpenGL features to create a racing game
-###[The Code](https://github.com/BombayCinema/Portfolio/tree/Racing-Game)
+###[The Code](https://github.com/BombayCinema/Portfolio/tree/Racing-Game/Racing%20Game)
 ###Demonstration
 [![Racing Game Demo](http://img.youtube.com/vi/6VeQYvPi9G0/0.jpg)](http://www.youtube.com/watch?v=6VeQYvPi9G0)
 
@@ -32,7 +32,7 @@ Uses advanced OpenGL features to create a racing game such as:
 <li>Terrain Height Maps</li>
 <li>Terrain Collision Detection</li>
 </ul>
-###[The Code](https://github.com/BombayCinema/Portfolio/tree/Advanced-OpenGL-Scene)
+###[The Code](https://github.com/BombayCinema/Portfolio/tree/Advanced-OpenGL-Scene/Advanced%20OpenGL%20Scene)
 ###Demonstration
 [![Advanced OpenGL Scene Demo](http://img.youtube.com/vi/52jChsIez6w/0.jpg)](http://www.youtube.com/watch?v=52jChsIez6w)
 ###Screen Shots
@@ -41,7 +41,7 @@ Uses advanced OpenGL features to create a racing game such as:
 
 ##Gravity & Collision Simulation
 Uses Advanced OpenGL as a base with some extra mathematics for collision detection and gravity
-###[The Code](https://github.com/BombayCinema/Portfolio/tree/Gravity-Simulation)
+###[The Code](https://github.com/BombayCinema/Portfolio/tree/Gravity-Simulation/Gravity%20Simulation)
 ###Demonstration
 [![Gravity & Collision Simulation Demo](http://img.youtube.com/vi/JjU7CmucAxE/0.jpg)](http://www.youtube.com/watch?v=JjU7CmucAxE)
 ###Screen Shots
