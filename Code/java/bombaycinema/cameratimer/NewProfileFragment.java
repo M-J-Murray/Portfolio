@@ -18,7 +18,12 @@ import android.widget.ImageView;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 
-
+/*
+ * Fragment to represent the profile editor
+ * Handles functionality related to adding/editing profile details or even removal
+ * @author Michael Murray
+ * @version v2.0, 27/06/2016
+ */
 public class NewProfileFragment extends DialogFragment {
     private int profileID;
     private String profileName;
@@ -30,38 +35,35 @@ public class NewProfileFragment extends DialogFragment {
     private TimerInputFragment timerInputFragmentDialog;
     private boolean editProfile;
 
-
-    static NewProfileFragment newInstance(int backgroundColour, boolean editProfile) {
+    /*
+     * static method which occurs on instantiation of object
+     * @param savedInstanceState - bundle of data to be passed into the fragment
+     * @return this fragment
+     */
+    public static NewProfileFragment newInstance(@Nullable Bundle savedInstanceState) {
         NewProfileFragment f = new NewProfileFragment();
-        Bundle bundle = new Bundle();
-        bundle.putInt("backgroundColour", backgroundColour);
-        bundle.putBoolean("editProfile", editProfile);
-        f.setArguments(bundle);
+        f.setArguments(savedInstanceState);
         return f;
     }
 
-    static NewProfileFragment newInstance(int backgroundColour, boolean editProfile, int profileId, String profileName, String profileTimeFrame, String profileIntervalFrequency, String profileWhiteNoiseLength, Boolean readOutIntervals) {
-        NewProfileFragment f = new NewProfileFragment();
-        Bundle bundle = new Bundle();
-        bundle.putInt("backgroundColour", backgroundColour);
-        bundle.putBoolean("editProfile", editProfile);
-        bundle.putInt("profileID", profileId);
-        bundle.putString("profileName", profileName);
-        bundle.putString("profileTimeFrame", profileTimeFrame);
-        bundle.putString("profileIntervalFrequency", profileIntervalFrequency);
-        bundle.putString("profileWhiteNoiseLength", profileWhiteNoiseLength);
-        bundle.putBoolean("readOutIntervals", readOutIntervals);
-        f.setArguments(bundle);
-        return f;
-    }
-
+    /*
+     * Handles the creation of the fragment
+     * @param inflater - the layout XML file used for corresponding View objects
+     * @param container - the view object used to represent the fragment
+     * @param savedInstanceState - bundle of data to be passed into the fragment
+     * @return the activity view
+     */
     @Override
     public View onCreateView(LayoutInflater inflater,@Nullable ViewGroup container,@Nullable Bundle savedInstanceState) {
+        //creates view
         View view = inflater.inflate(R.layout.new_profile_screen, container, false);
+        //fetches background colour from bundle
         backgroundColour = this.getArguments().getInt("backgroundColour");
+        //attaches Relative layout from XML file and sets background colour
         final RelativeLayout fragmentLayout = ((RelativeLayout) view.findViewById(R.id.newProfileLayout));
         fragmentLayout.setBackgroundColor(backgroundColour);
 
+        //attaches relevant buttons from XML file to setup onClick methods
         final FloatingActionButton saveProfileButton = (FloatingActionButton) view.findViewById(R.id.saveProfileButton);
         saveProfileButton.setOnClickListener(
                 new View.OnClickListener() {
@@ -80,7 +82,9 @@ public class NewProfileFragment extends DialogFragment {
                 }
         );
 
+        //fetches whether fragment is being used to edit or add a profile boolean
         editProfile = this.getArguments().getBoolean("editProfile");
+        //if fragment is being used to edit a profile fetch the profile details from the bundle and attach them to rhe relevant components
         if (editProfile == true){
             profileID = this.getArguments().getInt("profileID");
 
@@ -99,6 +103,7 @@ public class NewProfileFragment extends DialogFragment {
             readOutIntervals = this.getArguments().getBoolean("readOutIntervals");
             ((CheckBox)view.findViewById(R.id.checkBox)).setChecked(readOutIntervals);
 
+            //creates a deletion button to allow user to delete the current profile
             final FloatingActionButton deleteProfileButton = new FloatingActionButton(getActivity());
             RelativeLayout.LayoutParams lpDelete = new RelativeLayout.LayoutParams(RelativeLayout.LayoutParams.WRAP_CONTENT, RelativeLayout.LayoutParams.WRAP_CONTENT);
             lpDelete.addRule(RelativeLayout.BELOW, R.id.readIntervalsCBText);
@@ -117,6 +122,7 @@ public class NewProfileFragment extends DialogFragment {
 
             fragmentLayout.addView(deleteProfileButton);
 
+            //changes the layout of the cancel and save button to fit with the deletion button
             RelativeLayout.LayoutParams lpCancel = new RelativeLayout.LayoutParams(RelativeLayout.LayoutParams.WRAP_CONTENT,RelativeLayout.LayoutParams.WRAP_CONTENT);
             lpCancel.addRule(RelativeLayout.BELOW, R.id.readIntervalsCBText);
             lpCancel.addRule(RelativeLayout.ALIGN_PARENT_LEFT);
@@ -130,6 +136,7 @@ public class NewProfileFragment extends DialogFragment {
             saveProfileButton.setLayoutParams(lpSave);
         }
 
+        //creates the text views to display the details of the relevant timer details with onClick methods
         final TextView timeFrameSelectTextButton = (TextView) view.findViewById(R.id.timeSelectText);
         timeFrameSelectTextButton.setOnClickListener(
                 new View.OnClickListener() {
@@ -160,10 +167,16 @@ public class NewProfileFragment extends DialogFragment {
         return  view;
     }
 
+    /*
+     * deletes the current profile being edited
+     */
     public void deleteProfileButtonClicked(){
         ((MyProfilesFragment) getTargetFragment()).removeProfile(profileID);
     }
 
+    /*
+     * saves all of the current profile details and returns them to the MyProfilesFragment to be saved
+     */
     public void saveProfileButtonClicked() {
         profileName = ((EditText) getView().findViewById(R.id.profileNameEditText)).getText().toString();
         timeFrame.stringToTime(((TextView) getView().findViewById(R.id.timeSelectText)).getText().toString());
@@ -171,18 +184,28 @@ public class NewProfileFragment extends DialogFragment {
         whiteNoiseLength.stringToTime(((TextView) getView().findViewById(R.id.whiteNoiseDetailsText)).getText().toString());
         readOutIntervals = ((CheckBox) getView().findViewById(R.id.checkBox)).isChecked();
         if (editProfile == false){
+            //adds new profile
             ((MyProfilesFragment) getTargetFragment()).addProfile(new Profile(profileName, timeFrame, intervalFrequency, whiteNoiseLength, readOutIntervals));
         } else {
+            //replaces profile being edited
             ((MyProfilesFragment) getTargetFragment()).replaceProfile(profileID, new Profile(profileName, timeFrame, intervalFrequency, whiteNoiseLength, readOutIntervals));
 
         }
     }
 
+    /*
+     * occurs when cancel dialog button pressed
+     * closes the fragment
+     */
     public void cancelProfileButtonClicked() {
         ((MyProfilesFragment)getTargetFragment()).cancelProfile();
     }
 
-
+    /*
+     * creates a new overlay on top of this fragment to allow the current profile timer details to be edited
+     * @param timerInputType - states whether the timer input is being used for the timer length / interval frequency / white noise length
+     * @param currentInput - passes the current details of the relevant timer
+     */
     public void showTimerInputFragmentDialog(String timerInputType, String currentInput) {
         timerInputFragmentDialog = TimerInputFragment.newInstance(backgroundColour, timerInputType, currentInput);
         timerInputFragmentDialog.setStyle(DialogFragment.STYLE_NORMAL, android.R.style.Theme);
@@ -190,7 +213,13 @@ public class NewProfileFragment extends DialogFragment {
         timerInputFragmentDialog.show(getActivity().getFragmentManager(), "timerInputFragmentDialog");
     }
 
+    /*
+     * saves the current details of the timer input to relevant variable
+     * @param displayTime - the current timerInputFragment time input
+     * @param timerInputType - states whether the timer input is being used for the timer length / interval frequency / white noise length
+     */
     public void saveTimerInputFragmentDialogDetails(Time displayTime, String timerInputType){
+        //saves the timerInputFragment time input to the relevant TextView
         switch (timerInputType){
             case "timeFrameInput":
                 timeFrame = displayTime;
@@ -210,47 +239,10 @@ public class NewProfileFragment extends DialogFragment {
         }
     }
 
+    /*
+     * closes the timer input fragment dialog
+     */
     public void closeTimerInputFramentDialog(){
         timerInputFragmentDialog.dismiss();
-    }
-
-    public String getProfileName() {
-        return profileName;
-    }
-
-    public void setProfileName(String profileName) {
-        this.profileName = profileName;
-    }
-
-    public Time getTimeFrame() {
-        return timeFrame;
-    }
-
-    public void setTimeFrame(Time timeFrame) {
-        this.timeFrame = timeFrame;
-    }
-
-    public Time getIntervalFrequency() {
-        return intervalFrequency;
-    }
-
-    public void setIntervalFrequency(Time intervalFrequency) {
-        this.intervalFrequency = intervalFrequency;
-    }
-
-    public Time getWhiteNoiseLength() {
-        return whiteNoiseLength;
-    }
-
-    public void setWhiteNoiseLength(Time whiteNoiseLength) {
-        this.whiteNoiseLength = whiteNoiseLength;
-    }
-
-    public boolean isReadOutInterval() {
-        return readOutIntervals;
-    }
-
-    public void setReadsOutInterval(boolean readOutIntervals) {
-        this.readOutIntervals = readOutIntervals;
     }
 }

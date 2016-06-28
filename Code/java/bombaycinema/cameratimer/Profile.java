@@ -1,7 +1,11 @@
 package bombaycinema.cameratimer;
 
-import android.util.Log;
 
+/*
+ * Object used to represent the details of a profile
+ * @author Michael Murray
+ * @version v2.0, 27/06/2016
+ */
 public class Profile {
     private String profileName = null;
     private Time timerLength = new Time(0,0,0);
@@ -11,6 +15,14 @@ public class Profile {
     private Time currentProgress = new Time(0,0,0);
     private Time nextInterval = new Time(0, 0, 0);
 
+    /*
+     * Constructor for the profile object
+     * @param profileName - the profile name
+     * @param timerLength - the length of the timer
+     * @param intervalFrequency - the frequency at which the timer notifies the user
+     * @param whiteNoiseLength - the length of time the white noise plays for
+     * @param readOutIntervals - boolean stating whether the timer reads out the current interval
+     */
     public Profile(String profileName, Time timerLength, Time intervalFrequency, Time whiteNoiseLength, boolean readOutIntervals){
         this.profileName = profileName;
         this.timerLength = timerLength;
@@ -19,67 +31,72 @@ public class Profile {
         this.readOutIntervals = readOutIntervals;
     }
 
+    /*
+     * @return the variable for the time of the next interval
+     */
     public Time getNextInterval() {
         return nextInterval;
     }
 
-
+    /*
+     * resets the next interval variables time back to 0 everything
+     */
     public void resetNextInterval(){
         nextInterval.resetTime();
     }
 
+    /*
+     * updates the next interval variables time for the next interval
+     */
     public void updateNextInterval(){
         nextInterval.secondsToTime(nextInterval.toSeconds()+intervalFrequency.toSeconds());
     }
 
+    /*
+     * @return the variable for the time of the current progress
+     */
     public Time getCurrentProgress() {
         return currentProgress;
     }
 
-    public void setCurrentProgress(Time currentProgress) {
-        this.currentProgress = currentProgress;
-    }
-
+    /*
+     * resets the current time variables time back to 0 everything
+     */
     public void resetCurrentProgress(){
         currentProgress.resetTime();
     }
 
-    public void incrementCurrentProgress(){
-        currentProgress.incrementTime();
-    }
-
+    /*
+     * @return the name of the profile
+     */
     public String getProfileName() {
         return profileName;
     }
 
-    public void setProfileName(String profileName) {
-        this.profileName = profileName;
-    }
-
+    /*
+     * @return the length of the timer
+     */
     public Time getTimerLength() {
         return timerLength;
     }
 
-    public void setTimerLength(Time timerLength) {
-        this.timerLength = timerLength;
-    }
-
+    /*
+     * resets the next interval variables time back to 0 everything
+     */
     public Time getWhiteNoiseLength() {
         return whiteNoiseLength;
     }
 
-    public void setWhiteNoiseLength(Time whiteNoiseLength) {
-        this.whiteNoiseLength = whiteNoiseLength;
-    }
-
+    /*
+     * @return the interval frequency of the profile
+     */
     public Time getIntervalFrequency() {
         return intervalFrequency;
     }
 
-    public void setIntervalFrequency(Time intervalFrequency) {
-        this.intervalFrequency = intervalFrequency;
-    }
-
+    /*
+     * @return a string stating whether the profile reads out the intervals or not
+     */
     public String getReadOutIntervalsAsString(){
         if (readOutIntervals == true){
             return "true";
@@ -88,12 +105,10 @@ public class Profile {
         }
     }
 
+    /*
+     * @return a boolean stating whether the profile reads out the intervals or not
+     */
     public boolean isReadOutIntervals() {
         return readOutIntervals;
     }
-
-    public void setReadOutIntervals(boolean readOutIntervals) {
-        this.readOutIntervals = readOutIntervals;
-    }
-
 }
