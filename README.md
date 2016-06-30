@@ -1,8 +1,8 @@
-# Super Awesome Timer Android Application
+# Dark Room Timer Android Application
 An Android application I am making for a friend using Java and XML.
 The application allows you to create timer profiles.
-Each timer profile has a timer length, intervals at which white noise is played & the duration of the white noise. 
-The timer will also read out a countdown before the white noise, and the current position of the timer.</br>
+Each timer profile has a timer length, intervals at which a tone noise is played for a dynamic duration. 
+The timer also beeps every second 3 seconds before the interval and reads out a current time before the tone noiser.</br>
 By Michael Murray</br>
 
 ###[The Code](Code/)
