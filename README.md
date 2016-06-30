@@ -11,4 +11,4 @@ By Michael Murray</br>
 <h3>A Quoridor Game Application I helped make for a group project:</h3>
 ###[--Quoridor Application--](https://github.com/BombayCinema/Portfolio/tree/Quoridor)</br></br>
 <h3>An Android app I am making for a friend:</h3>
-###[--Super Awesome Timer Android App--](https://github.com/BombayCinema/Portfolio/tree/Super-Awesome-Timer-App)</br></br>
+###[--Dark Room Timer Android App--](https://github.com/BombayCinema/Portfolio/tree/Super-Awesome-Timer-App)</br></br>
