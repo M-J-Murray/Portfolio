@@ -17,7 +17,7 @@ By Michael Murray</br>
 <h4>Edit timer inputs:</h4>
 ![Edit Timer Inputs](media/editTime.png)
 <h4>Current timer :</h4>
-![Current Timer](media/currentTimer.png)
+![Current Timer](media/currentProfile.png)
 <h4>Settings :</h4>
 ![Current Timer](media/settings.png)
 
