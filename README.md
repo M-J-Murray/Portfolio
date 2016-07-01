@@ -9,11 +9,13 @@ By Michael Murray</br>
 
 <h1>Screen Shots</h1>
 <h4>Timer profiles page:</h4>
-![Timer Profiles Page](Media/MyProfiles.png)
+![Timer Profiles Page](media/MyProfiles.png)
 <h4>Edit timer profile page:</h4>
-![Edit Timer Profile Page](Media/EditProfile.png)
+![Edit Timer Profile Page](media/EditProfile.png)
 <h4>Edit timer inputs:</h4>
-![Edit Timer Inputs](Media/ChangingInput.png)
+![Edit Timer Inputs](media/editTime.png)
 <h4>Current timer :</h4>
-![Current Timer](Media/CurrentTimer.png)
+![Current Timer](media/currentTimer.png)
+<h4>Settings :</h4>
+![Current Timer](media/settings.png)
 
