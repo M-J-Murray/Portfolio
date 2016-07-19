@@ -11,6 +11,8 @@ import android.support.design.widget.FloatingActionButton;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.Window;
+import android.view.WindowManager;
 import android.widget.CheckBox;
 import android.widget.EditText;
 import android.widget.ImageButton;
@@ -18,8 +20,8 @@ import android.widget.ImageView;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 
-/*
- * Fragment to represent the profile editor
+/**
+ * Fragment Dialog to represent the profile editor
  * Handles functionality related to adding/editing profile details or even removal
  * @author Michael Murray
  * @version v2.0, 27/06/2016
@@ -35,7 +37,7 @@ public class NewProfileFragment extends DialogFragment {
     private TimerInputFragment timerInputFragmentDialog;
     private boolean editProfile;
 
-    /*
+    /**
      * static method which occurs on instantiation of object
      * @param savedInstanceState - bundle of data to be passed into the fragment
      * @return this fragment
@@ -46,7 +48,7 @@ public class NewProfileFragment extends DialogFragment {
         return f;
     }
 
-    /*
+    /**
      * Handles the creation of the fragment
      * @param inflater - the layout XML file used for corresponding View objects
      * @param container - the view object used to represent the fragment
@@ -57,6 +59,17 @@ public class NewProfileFragment extends DialogFragment {
     public View onCreateView(LayoutInflater inflater,@Nullable ViewGroup container,@Nullable Bundle savedInstanceState) {
         //creates view
         View view = inflater.inflate(R.layout.new_profile_screen, container, false);
+
+        //hides notification bar
+        getDialog().getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN,WindowManager.LayoutParams.FLAG_FULLSCREEN);
+        getDialog().getWindow().getDecorView().setSystemUiVisibility(
+                  View.SYSTEM_UI_FLAG_LAYOUT_STABLE
+                | View.SYSTEM_UI_FLAG_LAYOUT_HIDE_NAVIGATION
+                | View.SYSTEM_UI_FLAG_LAYOUT_FULLSCREEN
+                | View.SYSTEM_UI_FLAG_HIDE_NAVIGATION
+                | View.SYSTEM_UI_FLAG_FULLSCREEN
+                | View.SYSTEM_UI_FLAG_IMMERSIVE_STICKY);
+
         //fetches background colour from bundle
         backgroundColour = this.getArguments().getInt("backgroundColour");
         //attaches Relative layout from XML file and sets background colour
@@ -104,14 +117,9 @@ public class NewProfileFragment extends DialogFragment {
             ((CheckBox)view.findViewById(R.id.checkBox)).setChecked(readOutIntervals);
 
             //creates a deletion button to allow user to delete the current profile
-            final FloatingActionButton deleteProfileButton = new FloatingActionButton(getActivity());
-            RelativeLayout.LayoutParams lpDelete = new RelativeLayout.LayoutParams(RelativeLayout.LayoutParams.WRAP_CONTENT, RelativeLayout.LayoutParams.WRAP_CONTENT);
-            lpDelete.addRule(RelativeLayout.BELOW, R.id.readIntervalsCBText);
-            lpDelete.addRule(RelativeLayout.CENTER_HORIZONTAL);
-            lpDelete.setMargins(0, 20, 0, 0);
-            deleteProfileButton.setLayoutParams(lpDelete);
-            deleteProfileButton.setImageDrawable(getResources().getDrawable(android.R.drawable.ic_delete));
-            deleteProfileButton.setBackgroundTintList(new ColorStateList(new int[][]{new int[]{0}}, new int[]{new Color().WHITE}));
+            //attaches relevant buttons from XML file to setup onClick methods
+            final FloatingActionButton deleteProfileButton = (FloatingActionButton) view.findViewById(R.id.deleteProfileButton);
+            deleteProfileButton.setVisibility(FloatingActionButton.VISIBLE);
             deleteProfileButton.setOnClickListener(
                     new View.OnClickListener() {
                         public void onClick(View v) {
@@ -119,21 +127,6 @@ public class NewProfileFragment extends DialogFragment {
                         }
                     }
             );
-
-            fragmentLayout.addView(deleteProfileButton);
-
-            //changes the layout of the cancel and save button to fit with the deletion button
-            RelativeLayout.LayoutParams lpCancel = new RelativeLayout.LayoutParams(RelativeLayout.LayoutParams.WRAP_CONTENT,RelativeLayout.LayoutParams.WRAP_CONTENT);
-            lpCancel.addRule(RelativeLayout.BELOW, R.id.readIntervalsCBText);
-            lpCancel.addRule(RelativeLayout.ALIGN_PARENT_LEFT);
-            lpCancel.setMargins(120, 20, 0, 0);
-            cancelProfileButton.setLayoutParams(lpCancel);
-
-            RelativeLayout.LayoutParams lpSave = new RelativeLayout.LayoutParams(RelativeLayout.LayoutParams.WRAP_CONTENT,RelativeLayout.LayoutParams.WRAP_CONTENT);
-            lpSave.addRule(RelativeLayout.BELOW, R.id.readIntervalsCBText);
-            lpSave.addRule(RelativeLayout.ALIGN_PARENT_RIGHT);
-            lpSave.setMargins(0, 20, 120, 0);
-            saveProfileButton.setLayoutParams(lpSave);
         }
 
         //creates the text views to display the details of the relevant timer details with onClick methods
@@ -167,14 +160,23 @@ public class NewProfileFragment extends DialogFragment {
         return  view;
     }
 
-    /*
+    /**
+     * method runs when dialog is closed
+     */
+    @Override
+    public void onDestroy() {
+        super.onDestroy();
+        cancelProfileButtonClicked();
+    }
+
+    /**
      * deletes the current profile being edited
      */
     public void deleteProfileButtonClicked(){
         ((MyProfilesFragment) getTargetFragment()).removeProfile(profileID);
     }
 
-    /*
+    /**
      * saves all of the current profile details and returns them to the MyProfilesFragment to be saved
      */
     public void saveProfileButtonClicked() {
@@ -193,7 +195,7 @@ public class NewProfileFragment extends DialogFragment {
         }
     }
 
-    /*
+    /**
      * occurs when cancel dialog button pressed
      * closes the fragment
      */
@@ -201,19 +203,19 @@ public class NewProfileFragment extends DialogFragment {
         ((MyProfilesFragment)getTargetFragment()).cancelProfile();
     }
 
-    /*
+    /**
      * creates a new overlay on top of this fragment to allow the current profile timer details to be edited
      * @param timerInputType - states whether the timer input is being used for the timer length / interval frequency / white noise length
      * @param currentInput - passes the current details of the relevant timer
      */
     public void showTimerInputFragmentDialog(String timerInputType, String currentInput) {
         timerInputFragmentDialog = TimerInputFragment.newInstance(backgroundColour, timerInputType, currentInput);
-        timerInputFragmentDialog.setStyle(DialogFragment.STYLE_NORMAL, android.R.style.Theme);
+        timerInputFragmentDialog.setStyle(DialogFragment.STYLE_NO_TITLE, android.R.style.Theme);
         timerInputFragmentDialog.setTargetFragment(this, 0);
         timerInputFragmentDialog.show(getActivity().getFragmentManager(), "timerInputFragmentDialog");
     }
 
-    /*
+    /**
      * saves the current details of the timer input to relevant variable
      * @param displayTime - the current timerInputFragment time input
      * @param timerInputType - states whether the timer input is being used for the timer length / interval frequency / white noise length
@@ -239,7 +241,7 @@ public class NewProfileFragment extends DialogFragment {
         }
     }
 
-    /*
+    /**
      * closes the timer input fragment dialog
      */
     public void closeTimerInputFramentDialog(){

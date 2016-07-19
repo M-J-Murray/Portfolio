@@ -14,13 +14,14 @@ import android.view.ViewGroup;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 
-/*
+/**
  * Fragment to represent a simplified version of the profile
  * Shows details relating to the profile and enables the deletion or editing of the profile
  * @author Michael Murray
  * @version v2.0, 27/06/2016
  */
 public class ProfileFragment extends Fragment {
+    private RelativeLayout profileLayout;
     private int profileID;
     private FloatingActionButton activateButton;
     private FloatingActionButton editButton;
@@ -29,8 +30,9 @@ public class ProfileFragment extends Fragment {
     private TextView profileIntervalsText;
     private int backgroundColour;
     private boolean profileActivated = false;
+    private boolean profileRunning = false;
 
-    /*
+    /**
      * Handles the creation of the fragment
      * @param inflater - the layout XML file used for corresponding View objects
      * @param container - the view object used to represent the fragment
@@ -41,11 +43,12 @@ public class ProfileFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater,@Nullable ViewGroup container,@Nullable Bundle savedInstanceState) {
         //creates the view
         View view = inflater.inflate(R.layout.profile_fragment, container, false);
+
         //fetches the background colour
         backgroundColour = this.getArguments().getInt("backgroundColour");
         //attaches the RelativeLayout of the fragment from the XML resources and assigns the background colour
-        RelativeLayout profileLayout = (RelativeLayout) view.findViewById(R.id.profileLayout);
-        profileLayout.setBackgroundColor(backgroundColour);
+        profileLayout = (RelativeLayout) view.findViewById(R.id.profileLayout);
+        applyTheme(backgroundColour);
 
         //attaches the profiles ID
         profileID = this.getArguments().getInt("profileID");
@@ -72,7 +75,7 @@ public class ProfileFragment extends Fragment {
         activateButton.setOnClickListener(
                 new View.OnClickListener() {
                     public void onClick(View v) {
-                        activateButtonClicked();
+                        playPauseButtonClicked();
                     }
                 }
         );
@@ -89,7 +92,15 @@ public class ProfileFragment extends Fragment {
         return  view;
     }
 
-    /*
+    /**
+     * applies the current themes colours to relevant views
+     */
+    public void applyTheme(int backgroundColour){
+        profileLayout.setBackgroundColor(backgroundColour);
+        this.backgroundColour = backgroundColour;
+    }
+
+    /**
      * method to process edit button clicks
      * displays edit profile fragment overlay
      */
@@ -97,45 +108,74 @@ public class ProfileFragment extends Fragment {
         ((MyProfilesFragment) getTargetFragment()).showEditProfileFragmentDialog(profileID);
     };
 
-    /*
-     * method to process activate button clicks
+    /**
+     * method to process play/pause button clicks
      * sets the current profile in the currentProfileFragment to this profile
      */
-    public void activateButtonClicked(){
+    public void playPauseButtonClicked(){
         if (profileActivated == false){
             profileActivated = true;
+            profileRunning = true;
+            changeStartIcon();
             ((MainScreen) getActivity()).setCurrentProfile(profileID);
+        } else {
+            if (profileRunning == false) {
+                profileRunning = true;
+                changeStartIcon();
+            } else {
+                profileRunning = false;
+                changeStopIcon();
+            }
+            ((MainScreen) getActivity()).playPauseCurrentProfile();
+        }
+    };
+
+    /**
+    * method to process play/pause button clicks from current profile fragment
+    * updates icons and booleans
+    */
+    public void externalPlayPauseButtonClicked(){
+        if (profileRunning == false) {
+            profileRunning = true;
             changeStartIcon();
         } else {
-            profileActivated = false;
-            ((MainScreen) getActivity()).resetCurrentProfile();
+            profileRunning = false;
             changeStopIcon();
         }
     };
 
-    /*
-     * changes the fragments start button icon to a delete icon
+    /**
+     * changes the fragments start button icon to a pause icon
      */
     public void changeStartIcon(){
-        Drawable myFabSrc = getResources().getDrawable(android.R.drawable.ic_delete);
-        myFabSrc.setColorFilter(Color.RED, PorterDuff.Mode.MULTIPLY);
+        Drawable myFabSrc = getResources().getDrawable(android.R.drawable.ic_media_pause);
+        myFabSrc.setColorFilter(Color.argb(255,85,85,85), PorterDuff.Mode.MULTIPLY);
         activateButton.setImageDrawable(myFabSrc);
     }
 
-    /*
-     * changes the fragments delete button icon to a start icon
+    /**
+     * changes the fragments delete button icon to a play icon
      */
     public void changeStopIcon(){
-        Drawable myFabSrc = getResources().getDrawable(android.R.drawable.ic_input_add);
-        myFabSrc.setColorFilter(Color.GREEN, PorterDuff.Mode.MULTIPLY);
+        Drawable myFabSrc = getResources().getDrawable(android.R.drawable.ic_media_play);
+        myFabSrc.setColorFilter(Color.argb(255,85,85,85), PorterDuff.Mode.MULTIPLY);
         activateButton.setImageDrawable(myFabSrc);
     }
 
-    /*
+    /**
+     * pauses the current profile and updates icon
+     */
+    public void pauseButtonClicked(){
+        profileRunning = false;
+        changeStopIcon();
+    };
+
+    /**
      * deactivates the profile from being used in the Current Profile Fragment
      */
     public void deactivateProfile(){
         profileActivated = false;
+        profileRunning = false;
         changeStopIcon();
     }
 }

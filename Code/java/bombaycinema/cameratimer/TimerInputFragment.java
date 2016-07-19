@@ -8,6 +8,7 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.WindowManager;
 import android.widget.ImageView;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
@@ -16,8 +17,8 @@ import org.w3c.dom.Text;
 
 import java.util.Stack;
 
-/*
- * Fragment to process the input of time values
+/**
+ * Fragment Dialog to process the input of time values
  * @author Michael Murray
  * @version v2.0, 27/06/2016
  */
@@ -28,7 +29,7 @@ public class TimerInputFragment extends DialogFragment {
     private Time displayTime = new Time(0,0,0);
     private String timerInputType;
 
-    /*
+    /**
      * static method which occurs on instantiation of object
      * @param backgroundColour - the int value of the colour of the background
      * @param timerInputType - states whether the timer input is being used for the timer length / interval frequency / white noise length
@@ -45,7 +46,7 @@ public class TimerInputFragment extends DialogFragment {
         return f;
     }
 
-    /*
+    /**
     * Handles the creation of the fragment
     * @param inflater - the layout XML file used for corresponding View objects
     * @param container - the view object used to represent the fragment
@@ -56,6 +57,16 @@ public class TimerInputFragment extends DialogFragment {
     public View onCreateView(LayoutInflater inflater,@Nullable ViewGroup container,@Nullable Bundle savedInstanceState) {
         //creates view
         View view = inflater.inflate(R.layout.timer_input_fragment, container, false);
+
+        //hides notification bar
+        getDialog().getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN,WindowManager.LayoutParams.FLAG_FULLSCREEN);
+        getDialog().getWindow().getDecorView().setSystemUiVisibility(
+                          View.SYSTEM_UI_FLAG_LAYOUT_STABLE
+                        | View.SYSTEM_UI_FLAG_LAYOUT_HIDE_NAVIGATION
+                        | View.SYSTEM_UI_FLAG_LAYOUT_FULLSCREEN
+                        | View.SYSTEM_UI_FLAG_HIDE_NAVIGATION
+                        | View.SYSTEM_UI_FLAG_FULLSCREEN
+                        | View.SYSTEM_UI_FLAG_IMMERSIVE_STICKY);
 
         //attaches fragment layout and sets background colour
         backgroundColour = this.getArguments().getInt("backgroundColour");
@@ -197,7 +208,7 @@ public class TimerInputFragment extends DialogFragment {
         return  view;
     }
 
-    /*
+    /**
      * adds a new number to the timer input stack
      * @param keyPressed - the integer related to the key pressed
      */
@@ -213,7 +224,7 @@ public class TimerInputFragment extends DialogFragment {
         }
     }
 
-    /*
+    /**
      * converts the display stack into a list of integers to represent seconds, minutes and hours
      * @return the list of integers
      */
@@ -231,7 +242,7 @@ public class TimerInputFragment extends DialogFragment {
         return new int[] {hours, minutes, seconds};
     }
 
-    /*
+    /**
      * converts the list of integers representing the stack time into a string to be displayed
      */
     public void updateDisplay(){

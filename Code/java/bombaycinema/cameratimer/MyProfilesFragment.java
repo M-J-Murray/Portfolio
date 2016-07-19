@@ -11,6 +11,7 @@ import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.design.widget.FloatingActionButton;
 import android.util.Log;
+import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -20,7 +21,7 @@ import android.widget.TableLayout;
 import android.widget.TableRow;
 import android.widget.TextView;
 
-/*
+/**
  * Fragment to represent the profiles available to the user
  * Handles functionality related to selecting and editing user created profiles
  * @author Michael Murray
@@ -29,12 +30,15 @@ import android.widget.TextView;
 public class MyProfilesFragment extends Fragment {
     //profiles fragment row count
     private int rowCount = 0;
-    private int[] backgroundColours = new int[4];
+    private int backgroundColour;
+    private int backgroundColourDark;
     private NewProfileFragment newProfileFragmentDialog;
     private FloatingActionButton addProfileButton;
     private FragmentTransaction fragmentTransaction;
+    private RelativeLayout profilesLayout;
+    private ScrollView profilesScroll;
 
-    /*
+    /**
      * Handles the creation of the fragment
      * @param inflater - the layout XML file used for corresponding View objects
      * @param container - the view object used to represent the fragment
@@ -47,14 +51,17 @@ public class MyProfilesFragment extends Fragment {
         View view = inflater.inflate(R.layout.my_profiles_fragment, container, false);
 
         //background colours to be used by the fragment
-        backgroundColours[0] = this.getArguments().getInt("backgroundColour");
-        backgroundColours[1] = this.getArguments().getInt("backgroundColourDark");
-        backgroundColours[2] = this.getArguments().getInt("backgroundColourLight");
-        backgroundColours[3] = this.getArguments().getInt("backgroundColourLighter");
+        backgroundColour = this.getArguments().getInt("backgroundColour");
+        backgroundColourDark = this.getArguments().getInt("backgroundColourDark");
+
+        //attaches the relative layout for the fragment
+        profilesLayout = (RelativeLayout) view.findViewById(R.id.myProfilesFragmentView);
 
         //scroll view where all profile fragments are placed
-        ScrollView scroll = (ScrollView) view.findViewById(R.id.scrollViewForProfiles);
-        scroll.setFadingEdgeLength(150);
+        profilesScroll = (ScrollView) view.findViewById(R.id.scrollViewForProfiles);
+        profilesScroll.setFadingEdgeLength(500);
+
+        applyThemes(new int[]{backgroundColour, backgroundColourDark});
 
         //attaches add profile button XML component and sets relevant onClick methdods
         addProfileButton = (FloatingActionButton) view.findViewById(R.id.addProfileButton);
@@ -69,7 +76,26 @@ public class MyProfilesFragment extends Fragment {
         return view;
     }
 
-    /*
+    /**
+     * applies the current themes colours to all views in the fragment
+     * and attaches colours to profile fragments
+     * @params backgroundColour - the colours used for the theme
+     */
+    public void applyThemes(int[] backgroundColour){
+        profilesLayout.setBackgroundColor(backgroundColour[0]);
+        profilesScroll.setBackgroundColor(backgroundColour[0]);
+
+        this.backgroundColour = backgroundColour[0];
+        this.backgroundColourDark = backgroundColour[1];
+
+        //attaches colours to profile fragments
+        FragmentManager fragmentManager = getActivity().getFragmentManager();
+        for (int i = 0; i < rowCount; i++){
+            ((ProfileFragment) fragmentManager.findFragmentByTag(i+"")).applyTheme(backgroundColourDark);
+        }
+    }
+
+    /**
      * Runs on fragment creations to get all profiles loaded
      */
     @Override
@@ -78,7 +104,7 @@ public class MyProfilesFragment extends Fragment {
         loadProfiles();
     }
 
-    /*
+    /**
      * gets all profiles from the main activity and sets them up to be displayed
      */
     public void loadProfiles() {
@@ -90,7 +116,7 @@ public class MyProfilesFragment extends Fragment {
         }
     }
 
-    /*
+    /**
      * method to be run on add profile button click
      * @param view - the view associated with this fragment
      */
@@ -98,31 +124,33 @@ public class MyProfilesFragment extends Fragment {
         showNewProfileFragmentDiaglog();
     }
 
-    /*
+    /**
      * creates a fragment overlay on top of activity to allow user to create a new profile
      */
     public void showNewProfileFragmentDiaglog() {
         //attaches bundle to state background colour and that fragment is being used to add a new profile
         Bundle bundle = new Bundle();
-        bundle.putInt("backgroundColour", backgroundColours[0]);
+        bundle.putInt("backgroundColour", backgroundColourDark);
         bundle.putBoolean("editProfile", false);
         //creates new newProfile instance
         newProfileFragmentDialog = NewProfileFragment.newInstance(bundle);
-        newProfileFragmentDialog.setStyle(DialogFragment.STYLE_NORMAL, android.R.style.Theme);
+        newProfileFragmentDialog.setStyle(DialogFragment.STYLE_NO_TITLE, android.R.style.Theme);
         newProfileFragmentDialog.setTargetFragment(this, 0);
         newProfileFragmentDialog.show(getActivity().getFragmentManager(), "newProfileFragmentDialog");
     }
 
-    /*
+    /**
      * creates a fragment overlay on top of activity to allow user to edit a selected profile
      * @param profileFragmentId - the id related to profile being edited
      */
     public void showEditProfileFragmentDialog(int profileFragmentId) {
+        ((MainScreen) getActivity()).cancelCurrentProfile();
+
         //fetches profile being added
         Profile tempProfile = ((MainScreen) getActivity()).getProfile(profileFragmentId);
         //attaches bundle to state background colour and that fragment is being used to edit a profile with the profiles details
         Bundle bundle = new Bundle();
-        bundle.putInt("backgroundColour", backgroundColours[0]);
+        bundle.putInt("backgroundColour", backgroundColourDark);
         bundle.putBoolean("editProfile", true);
         bundle.putInt("profileID", profileFragmentId);
         bundle.putString("profileName", tempProfile.getProfileName());
@@ -132,36 +160,36 @@ public class MyProfilesFragment extends Fragment {
         bundle.putBoolean("readOutIntervals", tempProfile.isReadOutIntervals());
         //creates new newProfile instance
         newProfileFragmentDialog = NewProfileFragment.newInstance(bundle);
-        newProfileFragmentDialog.setStyle(DialogFragment.STYLE_NORMAL, android.R.style.Theme);
+        newProfileFragmentDialog.setStyle(DialogFragment.STYLE_NO_TITLE, android.R.style.Theme);
         newProfileFragmentDialog.setTargetFragment(this, 0);
         newProfileFragmentDialog.show(getActivity().getFragmentManager(), "editProfileFragmentDialog");
     }
 
-    /*
+    /**
      * replaces a profile with a new profile
      * used for editing profiles
      * @param profileToBeReplaced - the id related to the profile being replaced
      * @param profile - the profile object replacing the original
      */
     public void replaceProfile(int profileToBeReplaced, Profile profile) {
-        if (checkProfileValid(profile) == true) {
+        if (checkProfileValid(profile, profileToBeReplaced) == true) {
             ((MainScreen) getActivity()).replaceProfile(profileToBeReplaced, profile);
             editProfileFragment(profileToBeReplaced, profile);
             ((MainScreen) getActivity()).saveProfileData();
         }
     }
 
-    /*
+    /**
      * checks profile is valid and adds relevant fragment
      * @param profile - profile object to be added
      */
     public void addProfile(Profile profile) {
-        if (checkProfileValid(profile) == true) {
+        if (checkProfileValid(profile, -1) == true) {
             addProfileFragment(profile);
         }
     }
 
-    /*
+    /**
      * Edits profile fragment details to represent the updated profiles details
      * @param fragmentID - the fragment id which represents the current profile being edited
      * @param profile - the profile which details are being used for fragment
@@ -174,27 +202,28 @@ public class MyProfilesFragment extends Fragment {
         newProfileFragmentDialog.dismiss();
     }
 
-    /*
+    /**
      * validation check to see if profile name is already in use
      * no two profiles can have the same name
      * @param profileName - the name of the new profile
      * @return the boolean stating whether the new name is acceptable or not
      */
-    public boolean checkProfileNameMatch(String profileName) {
+    public boolean checkProfileNameMatch(String profileName, int orginalID) {
         for (int i = 0; i < ((MainScreen) getActivity()).getProfilesSize(); i++) {
-            if (profileName == ((MainScreen) getActivity()).getProfile(i).getProfileName()) {
+            Profile tempProfile = ((MainScreen) getActivity()).getProfile(i);
+            if (profileName.equals(tempProfile.getProfileName()) && orginalID != i){
                 return true;
             }
         }
         return false;
     }
 
-    /*
+    /**
      * checks that the details of the new profile about to be added is valid
      * @param profile - the profile about to be added
      * @return the boolean stating whether the new profile is acceptable or not
      */
-    public boolean checkProfileValid(Profile profile) {
+    public boolean checkProfileValid(Profile profile, int orginalID) {
         boolean profileValid = true;
         //contains list of errors which occur from the creation
         StringBuilder sb = new StringBuilder();
@@ -204,8 +233,13 @@ public class MyProfilesFragment extends Fragment {
             profileValid = false;
         }
         //checks that the profile name isnt already in use
-        if (checkProfileNameMatch(profile.getProfileName()) == true) {
+        if (checkProfileNameMatch(profile.getProfileName(), orginalID) == true) {
             sb.append("Profile Name In Use \n \n");
+            profileValid = false;
+        }
+        //checks that the timer is longer than 0 seconds
+        if (profile.getTimerLength().toSeconds() == 0) {
+            sb.append("Timer must have a length greater than 0 \n \n");
             profileValid = false;
         }
         //checks that the timer length is longer than the interval frequency
@@ -221,7 +255,7 @@ public class MyProfilesFragment extends Fragment {
                     .setMessage(sb.toString())
                     .setNegativeButton(android.R.string.no, new DialogInterface.OnClickListener() {
                         public void onClick(DialogInterface dialog, int which) {
-                            getExitTransition();
+                            dialog.cancel();
                         }
                     })
                     .setIcon(android.R.drawable.ic_dialog_alert)
@@ -230,7 +264,7 @@ public class MyProfilesFragment extends Fragment {
         return profileValid;
     }
 
-    /*
+    /**
      * method used to creates a new profile fragment, display it relevantly on screen and add the new profile to the main list
      * @param profile - the new profile being added
      */
@@ -240,7 +274,7 @@ public class MyProfilesFragment extends Fragment {
 
         //creates a new row with relevant id and layout then adds it to the table layout
         TableRow row = new TableRow(getActivity());
-        TableLayout.LayoutParams row_params = new TableLayout.LayoutParams(TableLayout.LayoutParams.MATCH_PARENT, TableLayout.LayoutParams.WRAP_CONTENT, 0.1f);
+        TableLayout.LayoutParams row_params = new TableLayout.LayoutParams(TableLayout.LayoutParams.MATCH_PARENT, TableLayout.LayoutParams.MATCH_PARENT, 0.1f);
         row.setId(rowCount + 1000);
         profileTable.addView(row, row_params);
 
@@ -254,7 +288,7 @@ public class MyProfilesFragment extends Fragment {
         tempBundle.putString("profileName", profile.getProfileName());
         tempBundle.putString("profileTimeFrame", profile.getTimerLength().toString());
         tempBundle.putString("profileIntervals", profile.getIntervalFrequency().toString());
-        tempBundle.putInt("backgroundColour", backgroundColours[3]);
+        tempBundle.putInt("backgroundColour", backgroundColourDark);
         profileFragment.setArguments(tempBundle);
         profileFragment.setTargetFragment(this, 0);
         //adds fragment to fragment list to be created and displayed
@@ -273,7 +307,7 @@ public class MyProfilesFragment extends Fragment {
         addProfileButton.setEnabled(true);
     }
 
-    /*
+    /**
      * closes the addProfile fragment editor
      */
     public void cancelProfile() {
@@ -281,7 +315,7 @@ public class MyProfilesFragment extends Fragment {
         addProfileButton.setEnabled(true);
     }
 
-    /*
+    /**
      * deletes the selected fragment and relevant profile
      * @param fragmentId - the id related to the fragment which is being deleted
      */
@@ -303,6 +337,7 @@ public class MyProfilesFragment extends Fragment {
             tempBundle.putString("profileName", tempProfile.getProfileName());
             tempBundle.putString("profileTimeFrame", tempProfile.getTimerLength().toString());
             tempBundle.putString("profileIntervals", tempProfile.getIntervalFrequency().toString());
+            tempBundle.putInt("backgroundColour", backgroundColourDark);
             newProfileFragment.setArguments(tempBundle);
             newProfileFragment.setTargetFragment(this, 0);
 
