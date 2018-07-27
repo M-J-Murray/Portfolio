@@ -5,7 +5,7 @@ By Michael Murray</br>
 ###[--CV--](Michael%20Murray%20CV%2031-03-16.pdf)</br></br>
 <h1>Here are some links to my projects:</h1>
 <h3>My Computer Graphics projects:</h3>
-###[--Computer Graphics--](https://github.com/BombayCinema/Portfolio/tree/Computer-Graphics)</br></br>
+[Computer Graphics](https://github.com/BombayCinema/Portfolio/tree/Computer-Graphics)</br></br>
 <h3>A website I made for coursework:</h3>
 ###[--Aston Animal Santuary Coursework--](https://github.com/BombayCinema/Portfolio/blob/AstonAnimalSantuary/README.md)</br></br>
 <h3>A Quoridor Game Application I helped make for a group project:</h3>
