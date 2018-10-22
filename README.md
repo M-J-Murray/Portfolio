@@ -7,17 +7,16 @@ I used dark colours so that the app can still be used within a dark room without
 The theme and volumes can also be changed in the settings</br>
 By Michael Murray</br>
 
-###[The Code](Code/)
+### [The Code](Code/)
 
-<h1>Screen Shots</h1>
-<h4>Timer profiles page:</h4>
+### Screen Shots
+#### Timer profiles page:
 ![Timer Profiles Page](media/myProfiles.png)
-<h4>Current timer :</h4>
+#### Current timer:
 ![Current Timer](media/currentProfile.png)
-<h4>Edit timer profile page:</h4>
+#### Edit timer profile page:
 ![Edit Timer Profile Page](media/editProfile.png)
-<h4>Edit timer inputs:</h4>
+#### Edit timer inputs:
 ![Edit Timer Inputs](media/editTime.png)
-<h4>Settings :</h4>
+#### Settings :
 ![Current Timer](media/settings.png)
-
