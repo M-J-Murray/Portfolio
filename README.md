@@ -20,17 +20,16 @@ Uses basic OpenGL features to create a racing game
 
 ## Advanced OpenGL Scene
 Uses advanced OpenGL features to create a racing game such as:
-<ul>
-<li>A Display</li>
-<li>VAOs and VBOs</li>
-<li>Index Buffers</li>
-<li>Shaders</li>
-<li>OBJ Files to Load Blendr Models</li>
-<li>Per-Pixel Lighting</li>
-<li>Multi-Texturing</li>
-<li>Terrain Height Maps</li>
-<li>Terrain Collision Detection</li>
-</ul>
+* A Display
+* VAOs and VBOs
+* Index Buffers
+* Shaders
+* OBJ Files to Load Blendr Models
+* Per-Pixel Lighting
+* Multi-Texturing
+* Terrain Height Maps
+* Terrain Collision Detection
+
 ### [The Code](https://github.com/M-J-Murray/Portfolio/tree/Advanced-OpenGL-Scene/Advanced%20OpenGL%20Scene)
 ### Demonstration
 [![Advanced OpenGL Scene Demo](http://img.youtube.com/vi/52jChsIez6w/0.jpg)](http://www.youtube.com/watch?v=52jChsIez6w)
